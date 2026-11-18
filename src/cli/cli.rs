@@ -1,4 +1,4 @@
-use clap::{crate_description, crate_name, crate_version, Arg, ArgAction, Command};
+use clap::{crate_description, crate_name, Arg, ArgAction, Command};
 
 // Only include `colorpicker_tools` for normal builds (not when compiling `build.rs` where
 // the module machinery does not work)
@@ -43,7 +43,7 @@ pub fn build_cli() -> Command {
         .default_value("Lab");
 
     Command::new(crate_name!())
-        .version(crate_version!())
+        .version(concat!(env!("CARGO_PKG_VERSION"), " (zach fork)"))
         .about(crate_description!())
         .next_display_order(None)
         .color(clap::ColorChoice::Auto)
